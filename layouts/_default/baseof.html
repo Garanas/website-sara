@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="nl">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,4 +13,6 @@
   <body>
     {{ block "page" . }}{{ end }}
   </body>
+{{ $script := resources.Get "js/script.js" | minify }}
+  <script src="{{ $script.RelPermalink }}"></script>
 </html>
