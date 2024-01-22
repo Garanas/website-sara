@@ -1,9 +1,16 @@
-:root {
-	--font-family: sans-serif;
-	--accent-color: hsl(89deg 53% 57%);
-	--bg-light-accent: hsl(89deg 53% 85%);
-	--bg-grey: hsl(0deg 0% 90%);
-	--bg-light-grey: hsl(210deg 12% 97%);
+$tablet: 768px;
+
+@layer variables {
+
+	:root {
+		--font-family: sans-serif;
+		--accent-color: hsl(89deg 53% 57%);
+		--bg-light-accent: hsl(89deg 53% 85%);
+		--bg-grey: hsl(0deg 0% 90%);
+		--bg-light-grey: hsl(210deg 12% 97%);
+
+		--top-offset: 60px; // hoogte van de header
+	}
+
 
 }
-

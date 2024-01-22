@@ -1,21 +1,15 @@
-html {
-	font-size: 1.25rem;
-}
+@layer base {
+	html {
+		font-size: 1.25rem;
+	}
 
-:is(*, ::before, ::after) {
-	box-sizing: border-box;
-}
+	body {
+		font-family: var(--font-family);
+		font-size: 0.8rem;
 
-body {
-	margin: 0;
-}
+		@media (min-width: 768px) {
+			font-size: 1rem;
+		}
+	}
 
-:is(ul, ol) {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-:is(h1, h2, h3, h4, h5, h6, p) {
-	margin: 0
 }
