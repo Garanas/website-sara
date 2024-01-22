@@ -4,7 +4,7 @@
 	.page-header {
 		align-items: center;
 		background-color: var(--bg-grey);
-		block-size: 60px;
+		min-block-size: 60px;
 		inline-size: 100%;
 		padding: 8px 8px 16px;
 
