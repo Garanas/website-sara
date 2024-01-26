@@ -1,0 +1,40 @@
+<!--{{- $respSizes := slice "320" "640" "960" "1280" "1600" "1920" -}}-->
+{{- $src := .Page.Resources.GetMatch (.Destination) -}}
+{{- $alt := .Text -}}
+{{- $caption := .Title -}}
+<!--{{- $holder := "GIP" -}}-->
+<!--{{- $hint := "photo" -}}-->
+<!--{{- $filter := "box" -}}-->
+<!--{{/*-->
+<!--The `$holder` variable (placeholder) assumes the-->
+<!--use of the `head-imgs-css.html` partial-->
+<!--template (or similar code); so edit-->
+<!--as may be appropriate for your own site.-->
+<!--As for the `$hint` and `$filter` items from-->
+<!--the shortcode, we have no way to `get` them-->
+<!--from the Markdown syntax's attributes so,-->
+<!--instead, we set their default values.-->
+<!--*/}}-->
+<!--{{- $imgBd5 := md5 $src -}}-->
+<!--{{- $divClass := print "relative bg-center imgB-" $imgBd5 "-" $holder -}}-->
+<!--{{- $imgClass := "w-full h-auto animate-fade" -}}-->
+<!--{{- $dataSzes := "(min-width: 1024px) 100vw, 50vw" -}}-->
+<!--{{- $actualImg := $src.Resize (print "640x png " $filter) -}}-->
+
+<figure class="{{ if lt $src.Width $src.Height }}__portrait {{ end }} drawing-list">
+  <img
+    alt="{{ $alt }}"
+    class="{{ if lt $src.Width $src.Height }}__portrait{{ end }}"
+    loading="lazy"
+    src="{{ $src.RelPermalink }}"
+    height="{{ $src.Height }}"
+    width="{{ $src.Width }}"
+  >
+  <figcaption>{{ $caption }}</figcaption>
+  <button
+    class="open-dialog"
+    aria-controls="modaal"
+    aria-expanded="false"
+    aria-label="Open grote afbeelding"
+  ></button>
+</figure>

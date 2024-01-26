@@ -2,11 +2,13 @@
 <div class="page-wrapper">
   {{ partial "header.html" . }}
   <main>
-    {{ .Content }}
-
-    <article>
-
-    </article>
+    <header class="main-header">
+      <h2>{{ .Title }}</h2>
+      <p>{{ .Summary }}</p>
+    </header>
+    <div class="main-content">
+      {{ .Content }}
+    </div>
   </main>
 <!--<article class="container">-->
 <!--  {{ if ne .Kind "home" }}-->
@@ -33,4 +35,10 @@
 <!--  </ul>-->
 <!--</article>-->
 </div>
+<dialog id="modaal">
+  <form method="dialog">
+    <button class="close-dialog" aria-label="Venster sluiten"></button>
+  </form>
+  {{ partial "image-modal.html" . }}
+</dialog>
 {{ end }}

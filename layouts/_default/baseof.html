@@ -7,7 +7,11 @@
       {{ or .Title .Site.Title }}{{ if ne .Kind "home" }} | {{
       .CurrentSection.Title }}{{ end }}
     </title>
-    {{ $style := resources.Get "scss/style.scss" | toCSS | minify }}
+    {{ $options := dict
+      "transpiler" "dartsass"
+      "sourceMapIncludeSources" true
+      }}
+    {{ $style := resources.Get "scss/style.scss" | toCSS $options | minify }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
   </head>
   <body>

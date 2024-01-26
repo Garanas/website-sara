@@ -1,10 +1,11 @@
-@layer reset variables base layout elements;
+@layer reset, variables, base, layout, elements, dialogs;
 
 @import "reset";
 @import "variables";
 @import "base";
 @import "layout";
 @import "elements";
+@import "dialogs";
 
 
 
