@@ -44,7 +44,7 @@
 		transition: all 200ms ease-in-out;
 
 		&:hover {
-			background-color: transparent;
+			background-color: white;
 			color: var(--accent-color);
 			outline: 2px solid var(--accent-color);
 		}
@@ -52,6 +52,7 @@
 
 	.js .toggle-container {
 		align-items: center;
+		background-color: hsl(0deg 0% 90% / 0.9);
 		display: flex;
 		inline-size: 100%;
 		justify-content: center;
@@ -131,6 +132,11 @@
 			text-decoration: none;
 			transition: background-color 200ms ease-in-out, border-radius 400ms ease-in 100ms;
 
+			&.__active {
+				color: var(--accent-color);
+				font-weight: bolder;
+			}
+
 			&.__smaller {
 				font-size: smaller;
 			}
@@ -144,18 +150,10 @@
 		}
 	}
 
-	// main content container
 	main {
-		align-items: start;
-		display: grid;
+		container-name: main;
+		container-type: inline-size;
 		min-block-size: 100dvh;
-		grid-template-columns: repeat(12, 1fr);
-		grid-auto-rows: max-content;
-		padding: 1rem 8px;
-
-		:is(h2, p) {
-			grid-column: 1 / -1;
-		}
 	}
 
 	.js main {
@@ -166,15 +164,111 @@
 		}
 	}
 
-	//	main content list article
-	article .list {
-		grid-column: 1 / -1;
-		grid-template-columns: subgrid;
+	.main-header {
+		padding: 1rem 0.5rem;
 	}
 
 
-	//	main content single article
-	article .single {
+	// main content container
+	.main-content {
+		align-items: start;
+		gap: 2rem 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		grid-auto-rows: 240px;
+		grid-auto-flow: row;
+		padding: 1rem 0.5rem;
 
+		@container main (min-width: 600px) {
+			display: grid;
+		}
+	}
+
+	// rendered image
+	figure {
+		align-items: center;
+		border-radius: 4px;
+		display: grid;
+		gap: 1rem;
+		grid-template-rows: repeat(2, max-content);
+		grid-column: span 2;
+		grid-row: span 2;
+		margin: 0;
+		overflow: hidden;
+		padding: 0.5rem;
+		transform: scale(1);
+		transition: all 200ms ease-in;
+
+		img {
+			block-size: auto;
+			display: block;
+			grid-area: 1 / 1 / 2 / 2;
+			inline-size: min(100%, 400px);
+			margin-inline: auto;
+			transform: scale(1);
+			transition: all 200ms ease-in;
+		}
+
+		figcaption {
+			grid-area: 2 / 1 / 3 / 2;
+		}
+
+		button.open-dialog {
+			align-self: stretch;
+			display: none;
+			grid-area: 1 / 1 / -1 / 2;
+			position: relative;
+		}
+
+		&:hover {
+			box-shadow: inset 0 0 6px var(--accent-color);
+
+
+			img {
+				transform: scale(1.02);
+			}
+		}
+
+		+ figure {
+			@container main (max-width: 600px) {
+				margin-block-start: 2rem;
+			}
+		}
+
+		&:not(.__portrait) {
+			align-self: center;
+
+			+ :not(.__portrait) {
+				align-self: start;
+				grid-row: span 2;
+			}
+		}
+
+		&.__portrait {
+			align-self: end;
+			grid-column: span 1;
+			grid-row: span 2;
+
+			img {
+				@container main (max-width: 600px) {
+					inline-size: auto;
+					margin-inline: auto;
+					max-block-size: 500px;
+				}
+			}
+
+			+.__portrait {
+				align-self: start;
+				grid-row: span 2;
+
+				+ :not(.__portrait) {
+					align-self: center;
+					grid-row: span 2;
+				}
+			}
+		}
+	}
+
+	.js button.open-dialog {
+		display: inline-block;
 	}
 }

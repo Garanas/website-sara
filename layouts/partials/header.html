@@ -6,22 +6,16 @@
     </button>
   </div>
 </header>
-  <nav id="main-nav" aria-label="primair" tabindex="-1">
-    <ul>
-      <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <a href="/mijn-werk">Mijn werk</a>
-      </li>
-      <li>
-        <a href="/" class="__smaller">Karikaturen</a>
-      </li>
-      <li>
-        <a href="/" class="__smaller">Persoonlijk werk</a>
-      </li>
-      <li>
-        <a href="/">Commission aanvragen</a>
-      </li>
-    </ul>
-  </nav>
+<nav id="main-nav" aria-label="primair" tabindex="-1">
+  <ul>
+    {{ $currentPage := . }}
+    {{ range .Site.Menus.main }}
+    <li>
+      <a
+        {{ if eq $currentPage.Title .Name  }} class="__active"{{ end }}
+        href="{{ .URL }}">{{ .Name }}
+      </a>
+    </li>
+    {{ end }}
+  </ul>
+</nav>

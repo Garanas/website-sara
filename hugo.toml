@@ -1,3 +1,38 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
+baseURL = '/'
+languageCode = 'nl-NL'
 title = 'Sara-Li tekent'
+
+[markup]
+    [markup.goldmark]
+        [markup.goldmark.parser]
+            wrapStandAloneImageWithinParagraph = false
+
+[[menu.main]]
+name = "Home"
+weight = 1
+identifier = "home"
+url = "/"
+
+[[menu.main]]
+name = "Mijn werk"
+weight = 2
+identifier = "mijn-werk"
+url = "/mijn-werk"
+
+[[menu.main]]
+name = "Karikaturen"
+weight = 3
+identifier = "karikaturen"
+url = "/karikaturen"
+
+[[menu.main]]
+name = "Persoonlijk werk"
+weight = 4
+identifier = "persoonlijk-werk"
+url = "/persoonlijk-werk"
+
+[[menu.main]]
+name = "Offerte"
+weight = 5
+identifier = "offerte"
+url = "/offerte"
