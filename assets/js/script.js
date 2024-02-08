@@ -24,11 +24,15 @@ function openDrawingModal(event) {
   dialog.showModal();
   const image = dialog.querySelector('img');
   const figcaption = dialog.querySelector('figcaption');
+  const aspectRatio = parseInt(img.naturalWidth, 10) / parseInt(img.naturalHeight, 10);
+  console.log(aspectRatio)
   image.src = img.src;
   image.width = img.width;
   image.height = img.height;
   image.alt = img.alt;
+
   figcaption.textContent = caption.textContent;
+  aspectRatio < 1 ? image.classList.add('__portrait') : null;
   event.target.setAttribute('aria-expanded', 'true')
 }
 
@@ -43,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
   toggleMenu.setAttribute('aria-controls', 'main-nav');
   toggleMenu.setAttribute('aria-expanded', 'false');
 })
+
 toggleMenu.addEventListener('click', toggleMenuHandler);
 openDialog.forEach((drawing) => drawing.addEventListener('click', openDrawingModal));
 dialog.addEventListener('close', clearModal);

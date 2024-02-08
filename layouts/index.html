@@ -1,0 +1,20 @@
+{{ define "page" }}
+<div class="page-wrapper">
+  {{ partial "header.html" . }}
+  <main>
+    <header class="main-header">
+      <h2>{{ .Title }}</h2>
+      <p>{{ .Summary }}</p>
+    </header>
+    <div class="main-content">
+      {{ .Content }}
+    </div>
+  </main>
+</div>
+<dialog id="modaal">
+  <form method="dialog">
+    <button class="close-dialog" aria-label="Venster sluiten"></button>
+  </form>
+  {{ partial "image-modal.html" . }}
+</dialog>
+{{ end }}

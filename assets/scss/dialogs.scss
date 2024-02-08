@@ -11,6 +11,7 @@
 		form {
 			display: flex;
 			justify-content: flex-end;
+			margin-block-end: 1rem;
 		}
 	}
 
@@ -54,10 +55,11 @@
 	}
 
 	figure.dialog {
+		background-color: white;
 		cursor: initial;
-		display: flex;
-		flex-flow: column;
-		gap: 2rem;
+		//display: flex;
+		//flex-flow: column;
+		//gap: 2rem;
 
 		&:hover {
 			box-shadow: none;
@@ -65,10 +67,21 @@
 		}
 
 		img {
+			block-size: 100%;
 			object-fit: contain;
+			inline-size: auto;
 			max-block-size: 70svh;
-			inline-size: 100%;
+			max-inline-size: 80svw;
 			transform: scale(1);
+
+			&.__portrait {
+				block-size: 100%;
+				inline-size: auto;
+			}
+		}
+
+		figcaption {
+			margin-block-start: 1rem;
 		}
 	}
 }

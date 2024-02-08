@@ -30,7 +30,13 @@
     height="{{ $src.Height }}"
     width="{{ $src.Width }}"
   >
-  <figcaption>{{ $caption }}</figcaption>
+  <figcaption
+    {{ if eq .Page.Title "Home" }}
+    class="__hide-content"
+  {{ end }}
+  >
+    {{ $caption }}
+  </figcaption>
   <button
     class="open-dialog"
     aria-controls="modaal"
