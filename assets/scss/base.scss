@@ -1,30 +1,29 @@
 @layer base {
-	html {
-		font-size: 1.25rem;
-	}
+  html {
+    font-size: 1.25rem;
+  }
 
-	body {
-		font-family: var(--font-family);
-		font-size: 0.8rem;
+  body {
+    font-family: var(--font-family);
+    font-size: 0.8rem;
 
-		@media (min-width: 768px) {
-			font-size: 1rem;
-		}
-	}
+    @media (min-width: 768px) {
+      font-size: 1rem;
+    }
+  }
 
-	a:any-link {
-		color: inherit;
-		text-decoration: none;
-	}
+  a:any-link {
+    color: inherit;
+    text-decoration: none;
+  }
 
-	button {
-		background-color: transparent;
-		border: none;
-		color: inherit;
-		cursor: pointer;
-		display: inline-block;
-		font-family: inherit;
-		padding: 0;
-	}
-
+  button {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    padding: 0;
+  }
 }
